@@ -2,8 +2,8 @@
 // Created by kanek on 29/10/2026.
 //
 
-#ifndef UNTITLED4_INITIALISATION_H
-#define UNTITLED4_INITIALISATION_H
+#ifndef PROJET_ALGO_INITIALISATION_H
+#define PROJET_ALGO_INITIALISATION_H
 typedef struct {
 nom char[50];
 Produit* Produit = NULL;
@@ -15,4 +15,4 @@ int capaciteClients;
 int numeroSuivant;
 int idClientSuivant;
 }boutique;
-#endif //UNTITLED4_INITIALISATION_H
+#endif //PROJET_ALGO_INITIALISATION_H

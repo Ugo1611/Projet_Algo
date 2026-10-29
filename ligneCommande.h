@@ -17,20 +17,15 @@ typedef struct
     float montantTTC;
     float fraisPort;
 }commande;
-typedef struct {
-    int jour;
-    int mois;
-    int annee;
-}date;
 char statut[20];
 int nbLignes;
 int capaciteLignes;
-struct Lignecommande
+typedef struct
 {
     char refProduit[12];
     char designation[60];
     int quantite;
     float prixUnitaireHT;
     float sousTotalHT;
-};
+}lignecommande;
 #endif //PROJET_ALGO_LIGNECOMMANDE_H

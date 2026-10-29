@@ -4,7 +4,7 @@
 
 #ifndef PROJET_ALGO_PRODUIT_H
 #define PROJET_ALGO_PRODUIT_H
-struct Produit {
+typedef struct  {
     char reference[12];
     char designation[60];
     char categorie[30];
@@ -12,6 +12,6 @@ struct Produit {
     int quantiteStock;
     int seuilAlerte;
     int actif;
-};
+}produit;
 
 #endif //PROJET_ALGO_PRODUIT_H

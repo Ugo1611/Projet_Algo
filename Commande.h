@@ -14,9 +14,9 @@ typedef struct
     float montantTVA;
     float montantTTC;
     float fraisPort;
+    char statut[20];
+    int nbLignes;
+    int capaciteLignes;
 }commande;
-char statut[20];
-int nbLignes;
-int capaciteLignes;
 
 #endif //PROJET_ALGO_COMMANDE_H

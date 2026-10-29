@@ -7,21 +7,6 @@
 include  "client.h"
 typedef struct
 {
-    int numero;
-    int idClient;
-    float montantBrutHT;
-    float tauxRemise;
-    float montantRemise;
-    float montantHT;
-    float montantTVA;
-    float montantTTC;
-    float fraisPort;
-}commande;
-char statut[20];
-int nbLignes;
-int capaciteLignes;
-typedef struct
-{
     char refProduit[12];
     char designation[60];
     int quantite;

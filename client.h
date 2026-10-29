@@ -12,13 +12,7 @@ struct client
     char email[80];
     char telephone[15];
 };
- struct Adresse
- {
-     char rue[80];
-     char ville[50];
-     char codePostal[6];
-     char pays[50];
- } adresse;
+
 int pointsFidelite;
 int nbCommandes;
 int capaciteCommandes;

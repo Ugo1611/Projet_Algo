@@ -9,8 +9,14 @@ struct commande
 {
     int numero;
     int idClient;
-
-
+    float montantBrutHT;
+    float tauxRemise;
+    float montantRemise;
+    float montantHT;
+    float montantTVA;
+    float montantTTC;
+    float fraisPort;
+    
 struct date {
     int jour;
     int mois;
@@ -27,12 +33,5 @@ struct Lignecommande
     float prixUnitaireHT;
     float sousTotalHT;
 };
-float montantBrutHT;
-float tauxRemise;
-float montantRemise;
-float montantHT;
-float montantTVA;
-float montantTTC;
-float fraisPort;
 };
 #endif //PROJET_ALGO_LIGNECOMMANDE_H

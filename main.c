@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "commande.h"
+#include "Commande.h"
 #include "initialisation.h"
 #include "produit.h"
 #include "statistique.h"
+#include "client.h"
+#include "date.h"
 
 static int lireChoix(void)
 {

@@ -4,7 +4,7 @@
 
 #ifndef PROJET_ALGO_ADRESSE_H
 #define PROJET_ALGO_ADRESSE_H
-struct Adresse
+type def struct
  {
      char rue[80];
      char ville[50];

@@ -5,7 +5,7 @@
 #ifndef PROJET_ALGO_LIGNECOMMANDE_H
 #define PROJET_ALGO_LIGNECOMMANDE_H
 include  "client.h"
-struct commande
+typedef struct
 {
     int numero;
     int idClient;
@@ -16,12 +16,12 @@ struct commande
     float montantTVA;
     float montantTTC;
     float fraisPort;
-    
-struct date {
+}commande;
+typedef struct {
     int jour;
     int mois;
     int annee;
-}dateCommande;
+}date;
 char statut[20];
 int nbLignes;
 int capaciteLignes;
@@ -32,6 +32,5 @@ struct Lignecommande
     int quantite;
     float prixUnitaireHT;
     float sousTotalHT;
-};
 };
 #endif //PROJET_ALGO_LIGNECOMMANDE_H

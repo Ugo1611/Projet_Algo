@@ -2,8 +2,8 @@
 // Created by kanek on 28/10/2026.
 //
 
-#ifndef UNTITLED4_CLIENT_H
-#define UNTITLED4_CLIENT_H
+#ifndef PROJET_ALGO_CLIENT_H
+#define PROJET_ALGO_CLIENT_H
 struct client
 {
     int client;
@@ -19,4 +19,4 @@ int capaciteCommandes;
 Commande* commande = NULL
 int actif;
 
-#endif //UNTITLED4_CLIENT_H
+#endif //PROJET_ALGO_CLIENT_H

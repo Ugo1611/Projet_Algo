@@ -1,15 +1,16 @@
-//
-// Created by ugogu on 29/10/2026.
-//
-
 #ifndef PROJET_ALGO_ADRESSE_H
 #define PROJET_ALGO_ADRESSE_H
-type def struct
- {
-     char rue[80];
-     char ville[50];
-     char codePostal[6];
-     char pays[50];
- } adresse;
+
+typedef struct
+{
+    char rue[80];
+    char ville[50];
+    char codePostal[8];
+    char pays[50];
+} ADRESSE;
+
+int CP_Valide(char *tab);
+int A_Valide(ADRESSE *tab);
+void afficher(ADRESSE *tab);
 
 #endif //PROJET_ALGO_ADRESSE_H

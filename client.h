@@ -4,6 +4,7 @@
 
 #ifndef PROJET_ALGO_CLIENT_H
 #define PROJET_ALGO_CLIENT_H
+#include "types.h"
 struct client
 {
     int client;

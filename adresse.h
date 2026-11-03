@@ -1,5 +1,6 @@
 #ifndef PROJET_ALGO_ADRESSE_H
 #define PROJET_ALGO_ADRESSE_H
+#include "types.h"
 
 typedef struct
 {

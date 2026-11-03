@@ -4,7 +4,7 @@
 
 #ifndef UNTITLED4_STATISTIQUE_H
 #define UNTITLED4_STATISTIQUE_H
-#include "type.h"
+#include "types.h"
 void calculer (int annee, int mois, float ht, float ttc,int nbCommandes,)
 
 void afficherchiffreAffaires

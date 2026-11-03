@@ -1,5 +1,6 @@
 #ifndef PROJET_ALGO_DATE_H
 #define PROJET_ALGO_DATE_H
+#include "types.h"
 
 typedef struct{
     int jour;

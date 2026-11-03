@@ -4,14 +4,6 @@
 
 #ifndef PROJET_ALGO_PRODUIT_H
 #define PROJET_ALGO_PRODUIT_H
-typedef struct  {
-    char reference[12];
-    char designation[60];
-    char categorie[30];
-    float prixUnitaireHT;
-    int quantiteStock;
-    int seuilAlerte;
-    int actif;
-}produit;
+#include "types.h"
 
 #endif //PROJET_ALGO_PRODUIT_H

@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "types.h"
+#include "initialisation.h"
+#include "produit.h"
+#include "client.h"
+#include "commande.h"
+#include "ligneCommande.h"
+#include "statistique.h"
 
 static int lireChoix(void)
 {
@@ -8,28 +14,28 @@ static int lireChoix(void)
     printf("  Votre choix : ");
     if (scanf("%d", &choix) != 1)
     {
-        exit(EXIT_FAILURE); 
+        exit(EXIT_FAILURE);
     }
     return choix;
 }
 
-void ajouterProduit(void)      { printf("  [STUB] ajouterProduit - a implementer dans produit.c\n"); }
-void modifierProduit(void)     { printf("  [STUB] modifierProduit - a implementer dans produit.c\n"); }
-void supprimerProduit(void)    { printf("  [STUB] supprimerProduit - a implementer dans produit.c\n"); }
-void afficherCatalogue(void)   { printf("  [STUB] afficherCatalogue - a implementer dans produit.c\n"); }
+void STUB_ajouterProduit(void)      { printf("  [STUB] ajouterProduit - a implementer dans produit.c\n"); }
+void STUB_modifierProduit(void)     { printf("  [STUB] modifierProduit - a implementer dans produit.c\n"); }
+void STUB_supprimerProduit(void)    { printf("  [STUB] supprimerProduit - a implementer dans produit.c\n"); }
+void STUB_afficherCatalogue(void)   { printf("  [STUB] afficherCatalogue - a implementer dans produit.c\n"); }
 
 /* --- Module CLIENTS ------------------------------------------------------- */
-void ajouterClient(void)       { printf("  [STUB] ajouterClient - a implementer dans client.c\n"); }
-void modifierClient(void)      { printf("  [STUB] modifierClient - a implementer dans client.c\n"); }
-void supprimerClient(void)     { printf("  [STUB] supprimerClient - a implementer dans client.c\n"); }
-void afficherListeClients(void){ printf("  [STUB] afficherListeClients - a implementer dans client.c\n"); }
+void STUB_ajouterClient(void)       { printf("  [STUB] ajouterClient - a implementer dans client.c\n"); }
+void STUB_modifierClient(void)      { printf("  [STUB] modifierClient - a implementer dans client.c\n"); }
+void STUB_supprimerClient(void)     { printf("  [STUB] supprimerClient - a implementer dans client.c\n"); }
+void STUB_afficherListeClients(void){ printf("  [STUB] afficherListeClients - a implementer dans client.c\n"); }
 
 /* --- Module COMMANDES ----------------------------------------------------- */
-void creerCommande(void)       { printf("  [STUB] creerCommande - a implementer dans commande.c\n"); }
-void afficherUneCommande(void) { printf("  [STUB] afficherUneCommande - a implementer dans commande.c\n"); }
+void STUB_creerCommande(void)       { printf("  [STUB] creerCommande - a implementer dans commande.c\n"); }
+void STUB_afficherUneCommande(void) { printf("  [STUB] afficherUneCommande - a implementer dans commande.c\n"); }
 
 /* --- Module STATISTIQUES -------------------------------------------------- */
-void afficherChiffreAffaires(void) { printf("  [STUB] afficherChiffreAffaires - a implementer dans statistique.c\n"); }
+void STUB_afficherChiffreAffaires(void) { printf("  [STUB] afficherChiffreAffaires - a implementer dans statistique.c\n"); }
 
 /* ==========================================================================
  * SOUS-MENUS : un seul motif a retenir, applique 4 fois.
@@ -51,10 +57,10 @@ static void menuProduits(void)
 
         switch (choix)
         {
-            case 1: ajouterProduit();    break;
-            case 2: modifierProduit();   break;
-            case 3: supprimerProduit();  break;
-            case 4: afficherCatalogue(); break;
+            case 1: STUB_ajouterProduit();    break;
+            case 2: STUB_modifierProduit();   break;
+            case 3: STUB_supprimerProduit();  break;
+            case 4: STUB_afficherCatalogue(); break;
             case 0:                      break; /* retour automatique */
             default: printf("  [!] Choix invalide.\n"); break;
         }
@@ -76,10 +82,10 @@ static void menuClients(void)
 
         switch (choix)
         {
-            case 1: ajouterClient();        break;
-            case 2: modifierClient();       break;
-            case 3: supprimerClient();      break;
-            case 4: afficherListeClients(); break;
+            case 1: STUB_ajouterClient();        break;
+            case 2: STUB_modifierClient();       break;
+            case 3: STUB_supprimerClient();      break;
+            case 4: STUB_afficherListeClients(); break;
             case 0:                         break;
             default: printf("  [!] Choix invalide.\n"); break;
         }
@@ -99,8 +105,8 @@ static void menuCommandes(void)
 
         switch (choix)
         {
-            case 1: creerCommande();       break;
-            case 2: afficherUneCommande(); break;
+            case 1: STUB_creerCommande();       break;
+            case 2: STUB_afficherUneCommande(); break;
             case 0:                        break;
             default: printf("  [!] Choix invalide.\n"); break;
         }
@@ -119,7 +125,7 @@ static void menuStatistiques(void)
 
         switch (choix)
         {
-            case 1: afficherChiffreAffaires(); break;
+            case 1: STUB_afficherChiffreAffaires(); break;
             case 0:                            break;
             default: printf("  [!] Choix invalide.\n"); break;
         }

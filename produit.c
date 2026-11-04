@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "produit.h"
+#include "type.h"
 
 PRODUIT ajouterP(PRODUIT *produit) {
     int nbP = 0;

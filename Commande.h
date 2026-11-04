@@ -4,9 +4,9 @@
 #define PROJET_ALGO_COMMANDE_H
 #include  "types.h"
 
-COMMANDE creerCommande(Commande *commande, LigneCommande *lignecommande, Client *client, Date *date, Adresse *adresse, Produit *produit);
-COMMANDE modifierCommande(Commande *commande, LigneCommande *lignecommande, Client *client, Date *date, Adresse *adresse, Produit *produit, int * nb_ligne_produit, int * nb_client_commande);
-COMMANDE supprimerCommande(Commande *commande, LigneCommande *lignecommande, Client *client, Date *date, Adresse *adresse, Produit *produit, int * nb_ligne_produit, int * nb_client_commande);
-COMMANDE annulerCommande(Commande *commande, Client *client, Date *date, Adresse *adresse, int * nb_ligne_commande);
+COMMANDE creerCommande(COMMANDE *commande, LigneCommande *lignecommande, CLIENT *client, DATE *date, ADRESSE *adresse, PRODUIT *produit);
+COMMANDE modifierCommande(COMMANDE *commande, LigneCommande *lignecommande, CLIENT *client, DATE *date, ADRESSE *adresse, PRODUIT *produit, int * nb_ligne_produit, int * nb_client_commande);
+COMMANDE supprimerCommande(COMMANDE *commande, LigneCommande *lignecommande, CLIENT *client, DATE *date, ADRESSE *adresse, PRODUIT *produit, int * nb_ligne_produit, int * nb_client_commande);
+COMMANDE annulerCommande(COMMANDE *commande, CLIENT *client, DATE *date, ADRESSE *adresse, int * nb_ligne_commande);
 
 #endif //PROJET_ALGO_COMMANDE_H

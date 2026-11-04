@@ -2,9 +2,13 @@
 #define PROJET_ALGO_CLIENT_H
 #include "types.h"
 
-Client ajouterClient(Client *client, Adresse *adresse);
-Client modifierClient(Client *client,Adresse *adresse);
-Client afficherClient(Client *client, Adresse *adresse);
-Client supprimerClient(Client *client, Adresse *adresse);
+void ajouterClient(BOUTIQUE *boutique);
+void modifierClient(BOUTIQUE *boutique);
+void afficherClient(BOUTIQUE boutique);
+void supprimerClient(BOUTIQUE *boutique);
+void rechercherClient(BOUTIQUE boutique);
+void modifierAdresseClient(BOUTIQUE *boutique);
+void afficherPointsFidelite(BOUTIQUE boutique);
+void ajouterPointFidelite(BOUTIQUE *boutique);
 
 #endif //PROJET_ALGO_CLIENT_H

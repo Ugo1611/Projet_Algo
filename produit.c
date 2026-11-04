@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "produit.h"
-#include "type.h"
 
 PRODUIT ajouterP(PRODUIT *produit) {
     int nbP = 0;
@@ -33,17 +32,17 @@ PRODUIT ajouterP(PRODUIT *produit) {
 
     do {
         printf("Entrez le prix hors taxes du produit : ");
-        scanf("%f", produit[i].prixUnitaireHT);
+        scanf("%f", &produit[i].prixUnitaireHT);
     } while (produit[i].prixUnitaireHT == 0);
 
     do {
         printf("Entrez le stock disponibles du produit : ");
-        scanf("%s", produit[i].quantiteStock);
+        scanf("%d", &produit[i].quantiteStock);
     } while (produit[i].quantiteStock < 0);
 
     do {
         printf("Entrez le seuil de réapprovisionnemment du produit : ");
-        scanf("%f", produit[i].seuilAlerte);
+        scanf("%d", &produit[i].seuilAlerte);
     } while (produit[i].seuilAlerte < 0);
 
     do {
@@ -90,7 +89,7 @@ PRODUIT modifierP(PRODUIT *produit) {
 
     do {
         printf("Modification du seuil d'alerte : ");
-        scanf("%f", &produit[i].seuilAlerte);
+        scanf("%d", &produit[i].seuilAlerte);
     } while (produit[i].seuilAlerte < 0);
 
     /* Affichage du nouveau tableau */

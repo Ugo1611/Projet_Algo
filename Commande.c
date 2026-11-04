@@ -1,7 +1,3 @@
-//
-// Created by micae on 29/10/2026.
-//
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,7 +5,7 @@
 #include "ligneCommande.h"
 
 /* Recalcul des montants */
-static void recalculerMontants(Commande *c)
+static void recalculerMontants(COMMANDE *c)
 {
     int i;
     c->montantBrutHT = 0;
@@ -34,33 +30,31 @@ static void recalculerMontants(Commande *c)
 }
 
 /* Calcul des points de fidélité */
-static int calculerPoints(Commande *c)
+static int calculerPoints(COMMANDE *c)
 {
     return (int)(c->montantTTC / 10);
 }
 
 /* Mise à jour de la commande enregistrée chez le client */
-static void synchroniserCommande(Commande *c, Client *client)
+static void synchroniserCommande(COMMANDE *c, CLIENT *client)
 {
     int i;
 
     for (i = 0; i < client->nbCommandes; i++)
     {
-        if (client->commandes[i].numero == c->numero)
+        if (client->commande[i].numero == c->numero)
         {
-            client->commandes[i] = *c;
+            client->commande[i] = *c;
             return;
         }
     }
 }
 
 /* CREATION */
-Commande creerCommande(Commande *commande, LigneCommande *lignecommande,
-                       Client *client, Date *date, Adresse *adresse,
-                       Produit *produit)
+COMMANDE creerCommande(COMMANDE *commande, LigneCommande *lignecommande,CLIENT *client, DATE *date, ADRESSE *adresse,PRODUIT *produit)
 {
-    Commande c = {0};
-    Commande *temp;
+    COMMANDE c = {0};
+    COMMANDE *temp;
 
     if (!lignecommande || !client || !date || !adresse || !produit ||
         produit->actif != 1 || lignecommande->quantite <= 0 ||
@@ -68,28 +62,28 @@ Commande creerCommande(Commande *commande, LigneCommande *lignecommande,
         return c;
 
     c.lignes = malloc(sizeof(LigneCommande));
-    c.dateCommande = malloc(sizeof(Date));
-    c.adresseLivraison = malloc(sizeof(Adresse));
+    c.date = malloc(sizeof(DATE));
+    c.adresse = malloc(sizeof(ADRESSE));
 
-    if (!c.lignes || !c.dateCommande || !c.adresseLivraison)
+    if (!c.lignes || !c.date || !c.adresse)
     {
         free(c.lignes);
-        free(c.dateCommande);
-        free(c.adresseLivraison);
-        return (Commande){0};
+        free(c.date);
+        free(c.adresse);
+        return (COMMANDE){0};
     }
 
     c.lignes[0] = creerLC(produit, lignecommande->quantite);
     if (c.lignes[0].quantite <= 0)
     {
         free(c.lignes);
-        free(c.dateCommande);
-        free(c.adresseLivraison);
-        return (Commande){0};
+        free(c.date);
+        free(c.adresse);
+        return (COMMANDE){0};
     }
 
-    *c.dateCommande = *date;
-    *c.adresseLivraison = *adresse;
+    *c.date = *date;
+    *c.adresse = *adresse;
     c.numero = client->nbCommandes + 1;
     c.idClient = client->idClient;
     strcpy(c.statut, "EN_COURS");
@@ -102,22 +96,22 @@ Commande creerCommande(Commande *commande, LigneCommande *lignecommande,
         int capacite = client->capaciteCommandes == 0 ? 2 :
                        client->capaciteCommandes * 2;
 
-        temp = realloc(client->commandes, capacite * sizeof(Commande));
+        temp = realloc(client->commande, capacite * sizeof(COMMANDE));
         if (!temp)
         {
             free(c.lignes);
-            free(c.dateCommande);
-            free(c.adresseLivraison);
-            return (Commande){0};
+            free(c.date);
+            free(c.adresse);
+            return (COMMANDE){0};
         }
 
-        client->commandes = temp;
+        client->commande = temp;
         client->capaciteCommandes = capacite;
     }
 
     produit->quantiteStock -= c.lignes[0].quantite;
     client->pointsFidelite += calculerPoints(&c);
-    client->commandes[client->nbCommandes++] = c;
+    client->commande[client->nbCommandes++] = c;
 
     if (commande) *commande = c;
 
@@ -125,10 +119,7 @@ Commande creerCommande(Commande *commande, LigneCommande *lignecommande,
 }
 
 /* MODIFICATION : ajout d'un produit */
-Commande modifierCommande(Commande *commande, LigneCommande *lignecommande,
-                          Client *client, Date *date, Adresse *adresse,
-                          Produit *produit, int *nb_ligne_produit,
-                          int *nb_client_commande)
+COMMANDE modifierCommande(COMMANDE *commande, LigneCommande *lignecommande,CLIENT *client, DATE *date, ADRESSE *adresse,PRODUIT *produit, int *nb_ligne_produit,int *nb_client_commande)
 {
     LigneCommande *temp;
     LigneCommande ligne;
@@ -143,7 +134,7 @@ Commande modifierCommande(Commande *commande, LigneCommande *lignecommande,
         strcmp(commande->statut, "EN_COURS") != 0 ||
         produit->actif != 1 || lignecommande->quantite <= 0 ||
         lignecommande->quantite > produit->quantiteStock)
-        return commande ? *commande : (Commande){0};
+        return commande ? *commande : (COMMANDE){0};
 
     anciensPoints = calculerPoints(commande);
     ligne = creerLC(produit, lignecommande->quantite);
@@ -172,10 +163,7 @@ Commande modifierCommande(Commande *commande, LigneCommande *lignecommande,
 }
 
 /* SUPPRESSION d'une ligne */
-Commande supprimerCommande(Commande *commande, LigneCommande *lignecommande,
-                           Client *client, Date *date, Adresse *adresse,
-                           Produit *produit, int *nb_ligne_produit,
-                           int *nb_client_commande)
+COMMANDE supprimerCommande(COMMANDE *commande, LigneCommande *lignecommande,CLIENT *client, DATE *date, ADRESSE *adresse,PRODUIT *produit, int *nb_ligne_produit,int *nb_client_commande)
 {
     int i, index, anciensPoints;
 
@@ -185,7 +173,7 @@ Commande supprimerCommande(Commande *commande, LigneCommande *lignecommande,
 
     if (!commande || !lignecommande || !client || !produit ||
         !nb_ligne_produit || strcmp(commande->statut, "EN_COURS") != 0)
-        return commande ? *commande : (Commande){0};
+        return commande ? *commande : (COMMANDE){0};
 
     index = *nb_ligne_produit;
 
@@ -209,9 +197,7 @@ Commande supprimerCommande(Commande *commande, LigneCommande *lignecommande,
 }
 
 /* ANNULATION */
-Commande annulerCommande(Commande *commande, Client *client,
-                         Date *date, Adresse *adresse,
-                         int *nb_ligne_commande)
+COMMANDE annulerCommande(COMMANDE *commande, CLIENT *client,DATE *date, ADRESSE *adresse,int *nb_ligne_commande)
 {
     (void)date;
     (void)adresse;
@@ -220,7 +206,7 @@ Commande annulerCommande(Commande *commande, Client *client,
     if (!commande || !client ||
         strcmp(commande->statut, "EN_COURS") != 0 ||
         commande->nbLignes <= 0)
-        return commande ? *commande : (Commande){0};
+        return commande ? *commande : (COMMANDE){0};
 
     client->pointsFidelite -= calculerPoints(commande);
     strcpy(commande->statut, "ANNULEE");

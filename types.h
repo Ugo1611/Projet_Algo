@@ -3,10 +3,10 @@
 
 typedef struct  {
     char nom[50];
-    struct Produit* produits;
+    PRODUIT* produits;
     int nbProduits;
     int capaciteProduits;
-    struct Client* clients;
+    CLIENT* clients;
     int nbClients;
     int capaciteClients;
     int numeroSuivant;
@@ -29,11 +29,11 @@ typedef struct  {
     char prenom[50];
     char email[80];
     char telephone[15];
-    struct Adresse* adresseLivraison;
+    ADRESSE* adresse;
     int pointsFidelite;
     int nbCommandes;
     int capaciteCommandes;
-    struct Commande* commandes ;/* ... Commande* ... */
+    COMMANDE* commande;/* ... Commande* ... */
     int actif;
 }CLIENT;
 
@@ -47,11 +47,11 @@ typedef struct  {
 typedef struct  {
     int numero;
     int idClient;
-    struct Date* dateCommande;
+    DATE* date;
     char statut[20];
     int nbLignes;
     int capaciteLignes;
-    struct LigneCommande* lignes;
+    LigneCommande* lignes;
     float montantBrutHT;
     float tauxRemise;
     float montantRemise;
@@ -59,7 +59,7 @@ typedef struct  {
     float montantTVA;
     float montantTTC;
     float fraisPort;
-    struct Adresse* adresseLivraison;
+    ADRESSE* adresse;
 }COMMANDE;
 
 typedef struct  {

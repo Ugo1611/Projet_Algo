@@ -1,9 +1,8 @@
-//
-//
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "client.h"
+#include "statistique.h"
 
 
 /* Ajouter un client */
@@ -15,10 +14,7 @@ void ajouterClient(BOUTIQUE *boutique)
     {
         boutique->capaciteClients += 10;
 
-        boutique->clients = realloc(
-            boutique->clients,
-            boutique->capaciteClients * sizeof(CLIENT)
-        );
+        boutique->clients = realloc(boutique->clients,boutique->capaciteClients * sizeof(CLIENT));
     }
 
     nouveauClient.idClient = boutique->idClientSuivant;
@@ -51,7 +47,7 @@ void ajouterClient(BOUTIQUE *boutique)
     nouveauClient.pointsFidelite = 0;
     nouveauClient.nbCommandes = 0;
     nouveauClient.capaciteCommandes = 0;
-    nouveauClient.commandes = NULL;
+    nouveauClient.commande = NULL;
     nouveauClient.actif = 1;
 
     boutique->clients[boutique->nbClients] = nouveauClient;
@@ -298,5 +294,3 @@ void ajouterPointsFidelite(BOUTIQUE *boutique)
         printf("Client introuvable.\n");
     }
 }
-
-

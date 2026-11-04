@@ -5,15 +5,6 @@
 #ifndef PROJET_ALGO_INITIALISATION_H
 #define PROJET_ALGO_INITIALISATION_H
 #include "types.h"
-typedef struct {
-nom char[50];
-Produit* Produit = NULL;
-int nbProduits;
-int capaciteProduits;
-client* client = NULL;
-int nbClients;
-int capaciteClients;
-int numeroSuivant;
-int idClientSuivant;
-}boutique;
+void initialiserDonneesTest(struct Boutique *b);
+void detruireBoutique(struct Boutique *b);
 #endif //PROJET_ALGO_INITIALISATION_H

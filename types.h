@@ -29,7 +29,7 @@ typedef struct  {
     char prenom[50];
     char email[80];
     char telephone[15];
-    ADRESSE* adresse;
+    ADRESSE adresse;
     int pointsFidelite;
     int nbCommandes;
     int capaciteCommandes;

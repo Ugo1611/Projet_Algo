@@ -1,10 +1,6 @@
-//
-// Created by ugogu on 29/10/2026.
-//
-
-#include "ligneCommande.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "ligneCommande.h"
 
 LigneCommande creerLC(PRODUIT *produit, int quantite) {
     LigneCommande ligne_c;

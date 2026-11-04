@@ -1,5 +1,3 @@
-//
-// Created by micae on 29/10/2026.
 #ifndef PROJET_ALGO_COMMANDE_H
 #define PROJET_ALGO_COMMANDE_H
 #include  "types.h"

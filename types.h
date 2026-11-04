@@ -1,9 +1,6 @@
-//
-// Created by kanek on 03/11/2026.
-//
-
 #ifndef UNTITLED4_TYPES_H
 #define UNTITLED4_TYPES_H
+
 typedef struct  {
     char nom[50];
     struct Produit* produits;
@@ -14,7 +11,7 @@ typedef struct  {
     int capaciteClients;
     int numeroSuivant;
     int idClientSuivant;
-}Boutique;
+}BOUTIQUE;
 
 typedef struct  {
     char reference[12];
@@ -24,7 +21,7 @@ typedef struct  {
     int quantiteStock;
     int seuilAlerte;
     int actif;
-}Produit;
+}PRODUIT;
 
 typedef struct  {
     int idClient;
@@ -38,14 +35,14 @@ typedef struct  {
     int capaciteCommandes;
     struct Commande* commandes ;/* ... Commande* ... */
     int actif;
-}Client;
+}CLIENT;
 
 typedef struct  {
     char rue[80];
     char ville[50];
     char codePostal[6];
     char pays[50];
-}Adresse;
+}ADRESSE;
 
 typedef struct  {
     int numero;
@@ -63,7 +60,7 @@ typedef struct  {
     float montantTTC;
     float fraisPort;
     struct Adresse* adresseLivraison;
-}Commande;
+}COMMANDE;
 
 typedef struct  {
     char refProduit[12];
@@ -77,6 +74,6 @@ typedef struct {
     int jour;
     int mois;
     int annee;
-}Date;
+}DATE;
 
 #endif //UNTITLED4_TYPES_H

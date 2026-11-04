@@ -5,19 +5,9 @@
 #ifndef PROJET_ALGO_CLIENT_H
 #define PROJET_ALGO_CLIENT_H
 #include "types.h"
-struct client
-{
-    int client;
-    char nom[50];
-    char prenom[50];
-    char email[80];
-    char telephone[15];
-};
-
-int pointsFidelite;
-int nbCommandes;
-int capaciteCommandes;
-Commande* commande = NULL
-int actif;
+Client ajouterClient(Client *client, Adresse *adresse);
+Client modifierClient(Client *client,Adresse *adresse);
+Client afficherClient(Client *client, Adresse *adresse);
+Client supprimerClient(Client *client, Adresse *adresse);
 
 #endif //PROJET_ALGO_CLIENT_H

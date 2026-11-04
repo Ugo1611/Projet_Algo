@@ -5,11 +5,11 @@
 #ifndef UNTITLED4_STATISTIQUE_H
 #define UNTITLED4_STATISTIQUE_H
 #include "types.h"
-void calculer (int annee, int mois, float ht, float ttc,int nbCommandes,)
 
-void afficherchiffreAffaires
+float calculerCATotal(BOUTIQUE *b);
+float calculerCAPeriode(BOUTIQUE *b, int mois, int annee);
+void afficherPalmaresP(BOUTIQUE *b);
+void afficherPalmaresC(BOUTIQUE *b);
+void afficherAlertesS(BOUTIQUE *b);
 
-void palmaresclient
-
-void palamresproduit
 #endif //UNTITLED4_STATISTIQUE_H
